@@ -1,0 +1,53 @@
+#main{
+    margin: 100px auto;
+    width:500px;
+    text-align: left;
+    border:10px gainsboro solid;
+    padding-left:30px;
+    padding-bottom: 10px;
+}
+h2{
+    font-weight: bold;
+}
+
+h5{
+    font-style: italic;
+}
+
+.inputName{
+    width: 230px;
+}
+
+button{
+    border-radius:5px;
+    background-color: #ff4d4fb8;
+    height:25px;
+    width:48px;
+    text-decoration: none;
+    border: none;
+    color:white;
+    margin:4px;
+}
+
+.filterBtn{
+    width:auto
+}
+
+.itemList{
+    margin:5px;
+}
+
+
+ol li{
+    margin:9px;
+    height:26px;
+    width: 260px;
+}
+
+/*ol li:nth-of-type(even){background-color: #f4ecec}*/
+
+.line-through {
+    text-decoration: line-through;
+}
+
+

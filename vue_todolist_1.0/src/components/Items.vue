@@ -23,12 +23,15 @@
         },
         computed: {
             getShowItems: function () {
-                if('all'=== this.$store.state.filterFlag) {
-                    return this.$store.state.todos
-                }else if(this.$store.state.filterFlag === 'active'){
-                    return this.$store.getters.active;
-                }else if(this.$store.state.filterFlag === 'complete'){
-                    return this.$store.getters.completed;
+                switch (this.$store.state.filterFlag) {
+                    case 'all':
+                        return this.$store.state.todos;
+                    case 'active':
+                        return  this.$store.getters.active;
+                    case 'complete':
+                        return this.$store.getters.completed;
+                    default:
+                        return this.$store.state.todos;
                 }
             }
         },

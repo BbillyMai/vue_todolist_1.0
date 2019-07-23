@@ -1,9 +1,9 @@
 const mutations = {
-    addNewTodo(state, name) {
+    addNewTodo(state, obj) {
         state.todos.push({
-            id: state.nextIndex++,
-            name: name,
-            status: false,
+            id: obj.id,
+            content: obj.content,
+            completed: obj.completed,
         })
     },
     loadTodo(state,date){

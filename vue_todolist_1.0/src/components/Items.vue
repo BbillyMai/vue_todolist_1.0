@@ -2,12 +2,14 @@
     <div class="itemList">
         <ol>
             <li v-for="(todo, index) in getShowItems" :key="todo.id">
-                <input id="checkbox" type="checkbox" v-bind:value="todo.id" v-model="todo.completed">
-                <span v-bind:class="{'line-through': todo.completed}"
+                <input id="checkbox" type="checkbox" :checked="todo.completed" v-model="todo.completed" @change="editTodo(todo.id,todo.content,todo.completed)">
+                <span v-bind:class="{'line-through':todo.completed}"
                       :contenteditable="editable"
                       @dblclick="setEditable(true)"
-                      @keypress.enter="onEnterPress(todo.id)"
-                      ref="text" >{{ todo.content }}</span>
+                      @keypress.enter="onEnterPress($event,todo.id,todo.completed)">
+                    {{ todo.content }}
+                </span>
+                <button @click="deleteTodo(todo.id)">删除</button>
             </li>
         </ol>
     </div>
@@ -18,10 +20,11 @@
         name: "items",
         data() {
             return {
-                editable: false
+                editable: false,
             }
         },
         computed: {
+
             getShowItems: function () {
                 switch (this.$store.state.filterFlag) {
                     case 'all':
@@ -39,10 +42,16 @@
             setEditable(editable) {
                 this.editable = editable;
             },
-            onEnterPress(id) {
-                let newName = this.$refs.text.innerText;
-                this.$store.commit('editName',{'id':id,'name':newName});
+            onEnterPress(event,id,completed) {
+                let content = event.srcElement.innerText;
+                this.$store.dispatch('editTodo',{id,content,completed});
                 this.setEditable(false);
+            },
+            deleteTodo(id){
+                this.$store.dispatch('deleteTodo',id)
+            },
+            editTodo(id,content,completed){
+                this.$store.dispatch('editTodo',{id,content,completed});
             }
         }
     }

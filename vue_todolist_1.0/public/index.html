@@ -6,26 +6,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>vue_todolist_1.0</title>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   </head>
   <body>
     <noscript>
       <strong>We're sorry but vue_todolist_1.0 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+
+    </div>
     <!-- built files will be auto injected -->
 
   <script>
-      axios.get('http://localhost:3001/todos')
-          .then(response=>console.log(response.data))
-          .catch(error=>console.log(error));
 
-      axios.post('http://localhost:3001/todos',{
-          id: 6,
-          content: "todo item 6",
-          completed: false
-      }).then(response=>console.log(response.data))
-          .catch(error=>console.log(error));
   </script>
   </body>
 </html>

@@ -2,12 +2,12 @@
     <div class="itemList">
         <ol>
             <li v-for="(todo, index) in getShowItems" :key="todo.id">
-                <input id="checkbox" type="checkbox" v-bind:value="todo.id" v-model="todo.status">
-                <span v-bind:class="{'line-through': todo.status}"
+                <input id="checkbox" type="checkbox" v-bind:value="todo.id" v-model="todo.completed">
+                <span v-bind:class="{'line-through': todo.completed}"
                       :contenteditable="editable"
                       @dblclick="setEditable(true)"
                       @keypress.enter="onEnterPress(todo.id)"
-                      ref="text" >{{ todo.name }}</span>
+                      ref="text" >{{ todo.content }}</span>
             </li>
         </ol>
     </div>

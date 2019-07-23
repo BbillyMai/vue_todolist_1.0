@@ -33,6 +33,9 @@
                 this.name=''
             },
 
+        },
+        mounted(){
+            this.$store.dispatch('getTodos');
         }
 
     }

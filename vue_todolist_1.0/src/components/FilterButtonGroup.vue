@@ -1,8 +1,8 @@
 <template>
     <div>
         <button class="filterBtn" @click="setFilterFlag('all')">All</button>
-        <button class="filterBtn" v-on:click="setFilterFlag(false)">Active</button>
-        <button class="filterBtn" v-on:click="setFilterFlag(true)">Complete</button>
+        <button class="filterBtn" @click="setFilterFlag('active')">Active</button>
+        <button class="filterBtn" @click="setFilterFlag('complete')">Complete</button>
     </div>
 </template>
 
@@ -11,8 +11,9 @@
         name: "filter-button-group",
         methods:{
             setFilterFlag(flag){
-                this.$store.dispatch('toggleTodo',flag)
+                this.$store.commit('setFilterFlag',flag)
             }
+
         }
 
     }

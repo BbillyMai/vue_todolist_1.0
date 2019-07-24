@@ -2,7 +2,7 @@
     <div class="itemList">
         <ol>
             <li v-for="(todo, index) in getShowItems" :key="todo.id">
-                <input id="checkbox" type="checkbox" :checked="todo.completed" v-model="todo.completed" @change="editTodo(todo.id,todo.content,todo.completed)">
+                <input id="checkbox" type="checkbox" :checked="todo.completed" @change="editTodo(todo.id,todo.content,todo.completed)">
                 <span v-bind:class="{'line-through':todo.completed}"
                       :contenteditable="editable"
                       @dblclick="setEditable(true)"
@@ -51,7 +51,7 @@
                 this.$store.dispatch('deleteTodo',id)
             },
             editTodo(id,content,completed){
-                this.$store.dispatch('editTodo',{id,content,completed});
+                this.$store.dispatch('editTodo',{id,content,completed:!completed});
             }
         }
     }

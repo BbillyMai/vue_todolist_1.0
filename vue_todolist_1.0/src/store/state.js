@@ -1,6 +1,7 @@
 const state = {
     todos: [],
     nextIndex: 1,
-    filterFlag:'all'
+    filterFlag:'all',
+    name:''
 }
 export default state

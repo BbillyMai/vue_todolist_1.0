@@ -15,17 +15,6 @@ const actions = {
     editTodo({dispatch},{id,content,completed}){
         axios.put(baseUrl+id,{content,completed}).then(()=>dispatch('getTodos'))
     },
-    toggleTodo({commit,dispatch},completed){
-        if(completed==='all'){
-            dispatch('getTodos')
-            return
-        }
-        axios.get(baseUrl)
-            .then(response=>{
-                let data = response.data.filter(obj=>obj.completed === completed);
-                commit('loadTodo',data)
-            })
-    }
-
 }
+
 export default actions

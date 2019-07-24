@@ -1,3 +1,4 @@
+
 const mutations = {
     addNewTodo(state, obj) {
         state.todos.push({
@@ -15,6 +16,9 @@ const mutations = {
     },
     editName(state,obj){
         state.todos.find(todo=>todo.id===obj.id).name=obj.name;
+    },
+    setName(state,newName){
+        state.name = newName;
     }
 
 }

@@ -39,5 +39,5 @@
 </script>
 
 <style scoped>
-    @import url("../assets/TodoList.css");
+    @import url("../assets/style.css");
 </style>
